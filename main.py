@@ -54,43 +54,6 @@ async def on_command_error(ctx, error):
     embed = discord.Embed(title = "Missing Arguments", description ="Missing an argument\nNext time use a prooper arguments", colour = discord.Colour.red())
     await ctx.send (embed = embed)  
 
-@client.command(hidden=True)
-@commands.is_owner()
-async def load(ctx, extension):
-   client.load_extension(f'cogs.{extension}')
-   await ctx.send('Succesfully loaded module')
-   
-@client.command(hidden=True)
-@commands.is_owner()
-async def unload(ctx, extension):
-   client.unload_extension(f'cogs.{extension}')
-   await ctx.send('Succesfully unloaded module')
-  
-@client.command(hidden=True)
-@commands.is_owner()
-async def reload(ctx, extension):
-   client.reload_extension(f'cogs.{extension}')
-   await ctx.send('Succesfully reloaded module')
-   
-@client.command(hidden=True)
-@commands.is_owner()
-async def l(ctx, extension):
-   client.load_extension(f'{extension}')
-   await ctx.send('Succesfully loaded module')
-   
-@client.command(hidden=True)
-@commands.is_owner()
-async def re(ctx, extension):
-   client.reload_extension(f'{extension}')
-   await ctx.send('Succesfully reloaded module')
- 
-@client.command(hidden=True)
-@commands.is_owner()
-async def un(ctx, extension):
-   client.unload_extension(f'{extension}')
-   await ctx.send('Succesfully unloaded module')
 
-
-keep_alive.keep_alive()
 client.run(os.getenv("TOKEN"))
 
